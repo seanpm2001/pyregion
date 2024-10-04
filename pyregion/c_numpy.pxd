@@ -126,5 +126,14 @@ cdef extern from "numpy/arrayobject.h":
     object PyArray_IterNew(object obj)
     void PyArray_ITER_NEXT(flatiter it)
 
-    void import_array()
+    int _import_array() except -1
+    int __pyx_import_array "_import_array"() except -1
+
+
     void import_ufunc()
+
+cdef inline int import_array() except -1:
+    try:
+        __pyx_import_array()
+    except Exception:
+        raise ImportError("numpy._core.multiarray failed to import")
