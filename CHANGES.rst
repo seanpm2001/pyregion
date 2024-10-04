@@ -1,23 +1,17 @@
-2.3.0 (unreleased)
+2.3.0 (2024-10-04)
 ------------------
 
-- No changes yet
+- Fixed build and installation and bump minimum required version of Python to 3.10. [#164, #168]
 
 
 2.2.0 (2022-12-09)
 ------------------
-
-Other Changes and Additions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Fixed build, installation, and testing issues. [#161]
 
 
 2.1.1 (2021-06-25)
 ------------------
-
-Other Changes and Additions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Support for angular units of 'd' and 'r' added.
 
