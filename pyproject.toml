@@ -39,7 +39,7 @@ optional-dependencies.docs = [
   "sphinx-rtd-theme" ]
 optional-dependencies.test = [
   "pytest",
-  "pytest-astropy-header"
+  "pytest-astropy"
 ]
 urls.Documentation = "https://pyregion.readthedocs.io/"
 urls.Homepage = "https://github.com/astropy/pyregion"
