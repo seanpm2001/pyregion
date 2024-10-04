@@ -1,7 +1,71 @@
 [build-system]
-requires = ["setuptools>=43.0.0", "setuptools_scm[toml]>=6.2", "wheel",
-            "oldest-supported-numpy", "cython"]
 build-backend = "setuptools.build_meta"
+
+requires = [
+  "cython>=3,<4",
+  "extension-helpers>=1,<2",
+  "numpy>=2,<3",
+  "setuptools",
+  "setuptools-scm>=6.2",
+]
+
+[project]
+name = "pyregion"
+description = "python parser for ds9 region files"
+readme.content-type = "text/x-rst"
+readme.file = "README.rst"
+license.text = "MIT"
+authors = [
+    {name = "Jae-Joon Lee", email = "lee.j.joon@gmail.com"}
+]
+requires-python = ">=3.10"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Astronomy",
+]
+dynamic = [ "version" ]
+
+dependencies = [
+  "astropy>=5",
+  "numpy>=1.23",
+  "pyparsing>=2" ]
+optional-dependencies.docs = [
+  "matplotlib",
+  "sphinx",
+  "sphinx-astropy",
+  "sphinx-rtd-theme" ]
+optional-dependencies.test = [
+  "pytest",
+  "pytest-astropy"
+]
+urls.Documentation = "https://pyregion.readthedocs.io/"
+urls.Homepage = "https://github.com/astropy/pyregion"
+urls.Source = "https://github.com/astropy/pyregion"
+urls.Tracker = "https://github.com/astropy/pyregion/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages]
+find = { namespaces = false }
+
+[tool.setuptools.package-data]
+"pyregion.tests.data" = [ "*.header", "*.reg" ]
+
+[tool.distutils.upload_docs]
+upload-dir = "docs/_build/html"
+show-response = 1
 
 [tool.setuptools_scm]
 write_to = "pyregion/version.py"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+norecursedirs = [ "build", "docs/_build" ]
+testpaths = [ "pyregion", "docs" ]
+
+[tool.extension-helpers]
+use_extension_helpers = "true"
