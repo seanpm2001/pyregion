@@ -10,7 +10,7 @@ ROOT = Path(__file__).parent.resolve().relative_to(Path.cwd())
 def get_extensions():
     _region_filter = Extension(
         name="pyregion._region_filter",
-        define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
+        # define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
         sources=[str(ROOT / "_region_filter.pyx")],
         include_dirs=[get_numpy_include()],
     )
